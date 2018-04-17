@@ -1,12 +1,19 @@
 package com.ferit.ablavicki.rmadz3;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity
 public class Task {
 
-    private int priority;
-    private String taskTitle;
-    private String taskCategory;
+    @PrimaryKey int id;
+    @ColumnInfo(name = "title") private String taskTitle;
+    @ColumnInfo(name = "category") private String taskCategory;
+    @ColumnInfo(name = "priority") private int priority;
 
-    public Task(int priority, String taskTitle, String taskCategory) {
+    public Task(int id, int priority, String taskTitle, String taskCategory) {
+        this.id = id;
         this.priority = priority;
         this.taskTitle = taskTitle;
         this.taskCategory = taskCategory;
