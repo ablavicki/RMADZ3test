@@ -8,24 +8,37 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder>{
 
     private List<Task> mTasks;
+    private TaskClickCallback mCallback;
 
-    public TaskAdapter(List<Task> tasks){
-        mTasks = tasks;
+    public TaskAdapter(List<Task> tasks, TaskClickCallback onTaskClickListener){
+        mTasks = new ArrayList<>();
+        this.refreshData(tasks);
+        mCallback = onTaskClickListener;
+    }
+
+    public void refreshData(List<Task> tasks) {
+        mTasks.clear();
+        mTasks.addAll(tasks);
+        this.notifyDataSetChanged();
     }
 
 
     @NonNull
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.task, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).
+                inflate(R.layout.task, parent, false);
         return new TaskViewHolder(view);
     }
 
@@ -56,5 +69,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
+
+        @OnClick void onTaskClick(){
+            mCallback.onClick(mTasks.get(getAdapterPosition()));
+        }
+
+        @OnLongClick
+        public boolean onTaskLongClick(){
+            return mCallback.onLongClick(mTasks.get(getAdapterPosition()));
+        }
+
     }
+
 }

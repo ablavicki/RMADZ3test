@@ -19,4 +19,8 @@ public interface TaskDao {
 
     @Insert
     void insertTask(Task task);
+
+    @Query("SELECT * FROM Task WHERE category = :category")
+    LiveData<List<Task>> getTasksBy(String category);
+
 }

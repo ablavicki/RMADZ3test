@@ -43,4 +43,17 @@ public class Task {
         this.taskCategory = taskCategory;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "mTitle='" + taskTitle + '\'' +
+                ", mCategory='" + taskCategory + '\'' +
+                ", mPriority='" + priority + '\'' +
+                '}';
+    }
+
 }

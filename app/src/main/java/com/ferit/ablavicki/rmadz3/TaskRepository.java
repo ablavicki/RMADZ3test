@@ -29,8 +29,9 @@ public class TaskRepository {
         return mData;
     }
 
-    public void insertBook(){
-
+    public void insertTask(){
+        Task task = TaskGenerator.generate();
+        new insertTaskAsync(mDatabase.taskDao()).execute(task);
     }
 
     public void deleteTask(Task task){
@@ -57,7 +58,6 @@ public class TaskRepository {
         public deleteTask(TaskDao taskDao){
             this.mTaskDao = taskDao;
         }
-
 
         @Override
         protected Void doInBackground(Task... tasks) {
