@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RMADZ3</string>
+    <string name="enter_task">Enter task:</string>
+    <string name="task_category">Choose task category:</string>
+    <string name="task_priority">Choose task priority:</string>
+    <string name="button_add">Add task</string>
 </resources>

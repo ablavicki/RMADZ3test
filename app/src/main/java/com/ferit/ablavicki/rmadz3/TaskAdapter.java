@@ -44,11 +44,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
+
         Task current = mTasks.get(position);
 
         holder.tvCategory.setText(current.getTaskTitle());
         holder.tvCategory.setText(current.getTaskCategory());
-        holder.ivPriority.setImageResource(current.getPriority());
+        //holder.ivPriority.setImageResource(current.getPriority());
+
     }
 
     @Override

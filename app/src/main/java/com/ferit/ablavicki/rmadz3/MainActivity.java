@@ -1,6 +1,7 @@
 package com.ferit.ablavicki.rmadz3;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -69,17 +70,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private List<Task> loadTasks(){
-        List<Task> tasks = null;
-        tasks.add(new Task(1,1,"lala", "bla"));
-        return tasks;
-
-    }
-
     @OnClick(R.id.fabAddTask)
     public void addTask(){
-        mTaskListViewModel.insertTask();
+       Intent intent = new Intent(this, AddTaskActivity.class);
+       startActivity(intent);
     }
 
-
+    @OnClick(R.id.fabAddCategory)
+    public void addBook(){
+        mTaskListViewModel.insertTask();
+    }
+    
 }

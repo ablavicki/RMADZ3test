@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout
     android:layout_height="match_parent"
-    tools:context=".AddTaskActivity">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="@dimen/margin">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvTaskTitleAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_task"
+        android:textSize="@dimen/size_addText"
+        android:layout_alignBaseline="@id/etTaskTitle"
+        android:layout_margin="@dimen/margin"/>
+
+    <EditText
+        android:id="@+id/etTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvTaskTitleAdd"
+        android:textSize="@dimen/size_addText"
+        />
+
+    <TextView
+        android:id="@+id/tvCategoryAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etTaskTitle"
+        android:text="@string/task_category"
+        android:textSize="@dimen/size_addText"
+        android:layout_margin="@dimen/margin"/>
+
+    <Spinner
+        android:id="@+id/sCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvCategoryAdd"
+        android:layout_below="@id/etTaskTitle"
+        android:textSize="@dimen/size_addText"
+        android:layout_alignBaseline="@id/tvCategoryAdd"
+        />
+
+    <TextView
+        android:id="@+id/tvPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCategoryAdd"
+        android:text="@string/task_priority"
+        android:textSize="@dimen/size_addText"
+        android:layout_margin="@dimen/margin"/>
+
+    <Spinner
+        android:id="@+id/sPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sCategory"
+        android:layout_toRightOf="@id/tvPriority"
+        android:textSize="@dimen/size_addText"
+        android:layout_alignBaseline="@id/tvPriority"/>
+
+    <Button
+        android:id="@+id/bAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_add"
+        android:layout_below="@id/sPriority"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/size_addText"/>
+
+
+</RelativeLayout>

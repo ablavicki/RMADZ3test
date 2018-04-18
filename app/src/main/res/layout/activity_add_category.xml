@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="@dimen/margin">
+
+    <TextView
+        android:id="@+id/tvCategoryAC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter new category:"
+        android:layout_alignBaseline="@id/etCategory"/>
+
+    <EditText
+        android:id="@+id/etCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvCategoryAC"
+        android:layout_margin="@dimen/margin"/>
+
+    <Button
+        android:id="@+id/bCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add category"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/etCategory"
+        android:layout_margin="@dimen/margin"/>
+</RelativeLayout>
